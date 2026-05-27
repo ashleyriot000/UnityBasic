@@ -16,6 +16,17 @@ public class Variables : MonoBehaviour
     //참거짓
     public bool boolValue = true;
 
+    //활성화될 때마다 한번만 호출
+    private void OnEnable()
+    {
+        Debug.Log("활성화됨");
+    }
+    //비활성될 때마다 한번만 호출
+    private void OnDisable()
+    {
+        Debug.Log("비활성화됨");
+    }
+
     //처음 시작시 한번만
     void Start()
     {
