@@ -17,6 +17,7 @@ public class ButtonReactor : MonoBehaviour
         if (vari != null)
             vari.enabled = true;
         Debug.Log("점프 버튼 눌렀음.");
+        
     }
 
     public void OnOut()

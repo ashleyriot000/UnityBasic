@@ -21,9 +21,11 @@ public class Rotater : MonoBehaviour
 
     void Update()
     {
+        //오일러방식(360도)으로 회전시키는 함수.
         transform.Rotate(axis * rotateSpeed * Time.deltaTime, Space.World);
         if(target != null)
         {
+            //공전시키기 위한 위치 재조정.
             transform.position = -transform.forward * distance + target.position;
         }
     }

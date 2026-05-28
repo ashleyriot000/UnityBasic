@@ -6,6 +6,7 @@ public class PointerReactor : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public MeshRenderer[] meshRenderers;
     public Color enterColor;
     public Color exitColor;
+    public bool enableEmission;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -13,6 +14,8 @@ public class PointerReactor : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         foreach (MeshRenderer r in meshRenderers)
         {
             r.material.color = enterColor;
+            if (enableEmission)
+                r.material.EnableKeyword("_EMISSION");
         }
 
         transform.localScale = Vector3.one * 1.5f;
@@ -29,6 +32,8 @@ public class PointerReactor : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         for (int i = 0; i < meshRenderers.Length; ++i)
         {
             meshRenderers[i].material.color = exitColor;
+            if(enableEmission)
+                meshRenderers[i].material.DisableKeyword("_EMISSION");
         }
 
         transform.localScale = Vector3.one;
